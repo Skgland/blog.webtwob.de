@@ -1,0 +1,15 @@
+[package]
+name = "blog_webtwob_de"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+chrono = { version = "0.4.31", features = ["serde"] }
+handlebars = { version = "4.4.0", features = ["dir_source"] }
+pulldown-cmark = { version = "0.9.3", features = ["serde", "simd"] }
+serde = { version = "1.0.188", features = ["derive"] }
+thiserror = "1.0.49"
+toml = "0.8.1"
+walkdir = "2.4.0"

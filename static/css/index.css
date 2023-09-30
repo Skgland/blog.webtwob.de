@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: blanchedalmond;
+    margin: 0;
+    height: 100vh;
+}
+
+body>main {
+    flex-grow: 1;
+    margin: 5pt;
+}
+
+header,
+footer {
+    background-color: burlywood;
+    position: sticky;
+}
+
+footer {
+    bottom: 0;
+}
+
+header ul,
+footer ul {
+    list-style-type: none;
+}
+
+footer>nav>ul>li,
+header>nav>ul>li {
+    display: inline;
+}
+
+footer>nav>ul>li>a,
+header>nav>ul>li>a {
+    padding: 5pt;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+footer>nav>ul>li>a:hover,
+header>nav>ul>li>a:hover {
+    background-color: bisque;
+}

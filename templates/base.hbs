@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{{@root.base_path}}/css/index.css" />
+    {{#> head}}
+    {{/head}}
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a title="Landing Page with general information and recent Posts"
+                        href="{{@root.base_path}}/">Home</a></li>
+                <li><a title="Index of Post Categories" href="{{@root.base_path}}/categories">Categories</a></li>
+                <li><a title="Archive of all Posts" href="{{@root.base_path}}/archive">Archive</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {{> @partial-block }}
+    </main>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="{{@root.base_path}}/impressum">Impressum</a></li>
+                <li><a href="gitub issue tracker link">Report a Problem</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+
+</html>

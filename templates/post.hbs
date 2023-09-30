@@ -1,0 +1,21 @@
+{{#* inline "head"}}
+<link rel="alternate" type="application/rss+xml" title="RSS" href="{{@root.base_path}}/posts/feed.rss" />
+{{/inline}}
+{{#> base}}
+<article>
+    Created: {{created}}
+    {{#if (ne created modified)}}
+    Updated: {{modified}}
+    {{/if}}
+    {{{body}}}
+    <div>
+        <h3>Keywords:</h3>
+        <ul>
+            {{#each keywords}}
+            <li>{{this}}</li>
+            {{/each}}
+        </ul>
+    </div>
+</article>
+
+{{/base}}

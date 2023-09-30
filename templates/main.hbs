@@ -1,0 +1,8 @@
+{{#> base}}
+Latest Posts:
+<ul>
+    {{#each recent_posts}}
+    <li><a href="{{@root.base_path}}/{{this.link}}">{{this.title}}</a></li>
+    {{/each}}
+</ul>
+{{/base}}
