@@ -35,7 +35,7 @@ What toml gives me as a config writer is
 a standard syntax to write values of specific primitive types (number, string, boolean, date),
 as well as a standard syntax to write composite types.
 
-\0. Confusion between how TOML interprets a file and how a program interprets the resulting TOML
+0\. Confusion between how TOML interprets a file and how a program interprets the resulting TOML
 -----------------------------------------------------------------------------------------------
 
 I think the Author confuses parsing TOML into an abstract TOML Document structure
@@ -60,7 +60,7 @@ The application then does not consume a TOML file directly,
 but instead an abstract TOML Document type returned by the TOML library.
 As a result adding a layer of abstraction between the config file and the application.
 
-\1. Data types
+1\. Data types
 --------------
 
 The author complains about the typed nature of TOML,
@@ -92,7 +92,7 @@ possible enum and the set of valid values for each application.
 Falling back to using a string and having the application handle decoding from string is a valid strategy,
 if the set of expected values is application defined.
 
-\2. Quotes in values
+2\. Quotes in values
 --------------------
 
 Here the author complains about the absence of unquoted strings,
@@ -119,14 +119,14 @@ as I forgot to quote my string when changing a version number from `1.69` to `1.
 this could have been avoided if Yaml and/or the application did not perform auto-conversion
 and only accepted string for version numbers.
 
-\3. Case sensitivity
+3\. Case sensitivity
 --------------------
 
 I think this comes back to my 0th point, whether an application,
 treats keys case-sensitive or not is up to the application,
 but TOML preserves that difference so that the application can make that choice.
 
-\4. Unicode key names
+4\. Unicode key names
 ---------------------
 
 At least for keys not containing whitespace or special characters used by the toml syntax,
@@ -136,7 +136,7 @@ having to add quotes is a minor inconvenience and
 in my experience I find it rather uncommon to have non-ASCII keys.
 Though I suspect users of alphabets that are not based on the latin alphabet will likely disagree.
 
-\5. Square brackets
+5\. Square brackets
 -------------------
 
 A big point for square brackets is that they allow using the same delimiter
@@ -159,7 +159,7 @@ easy to confuse,
 but in C a pointer to an array is just a pointer to the arrays first value, muddling the distinction.
 Such a flaw of C does not need to exist in TOML.
 
-\6. Array delimiters
+6\. Array delimiters
 --------------------
 
 This is the point where I began seriously suspecting that this is all just a huge joke.
@@ -174,7 +174,7 @@ for lists and
 with brackets to mark the beginning and end pf lists you only need one delimiter
 as nesting levels are already clear.
 
-\7. Mixed arrays
+7\. Mixed arrays
 ----------------
 
 Fist the author complained about the typed nature of TOML and now its not typed enough?
@@ -184,7 +184,7 @@ There are only finite types in TOML after all `string`, `integer`, `float`, `dat
 
 Whether the application accepts such a mixed array is again up to the application.
 
-\8. Composite configuration files
+8\. Composite configuration files
 ---------------------------------
 
 This in part assumes that composition of config files is done by concatenating the
@@ -195,7 +195,7 @@ the right approach in my opinion would be to defined an import mechanism
 with proper conflict resolution.
 Wild west file concatenation seams inappropriate to me.
 
-\9. Dates
+9\. Dates
 ---------
 
 ### Why Dates?
@@ -231,12 +231,12 @@ unused computationally.
 I think its rare to need to perform special handling on E-Mail Addresses
 beyond passing it to the function that will be sending emails.
 
-\10. Empty key names
+10\. Empty key names
 --------------------
 
 Why should the empty string be special? Keys are basically just strings.
 
-\11. Arrays of tables
+11\. Arrays of tables
 --------------------
 
 Not everything needs a name.
@@ -253,7 +253,7 @@ neither option is right or wrong, it depends on the use-case.
 As the author has demonstrated TOML supports both use-cases.
 I personally prefer the internally tagged List of Objects for configuration files.
 
-\12. Lack of support for implicit keys
+12\. Lack of support for implicit keys
 --------------------------------------
 
 I find neither example convincing, I would find it more convincing
@@ -267,21 +267,21 @@ TOML would than analogue represent itself as a `HashMap<String, Value>`,
 here a key with an absent key is obviously not valid and I prefer this.
 If you define a key typing a few characters more to define its value is not too much to ask.
 
-\13. Inline tables must remain... inline
+13\. Inline tables must remain... inline
 ----------------------------------------
 
 I agree ith this one.
 To make it worse an inline table is allowed to span multiple lines if the line breaks
 are in values that permit line breaks, i.e. arrays and multiline strings.
 
-\14. Incompatibility
+14\. Incompatibility
 --------------------
 
 Most config formats are incompatible with each other.
 Also, I think they meant to say that Yaml is a superset of JSON in the Preamble,
 not a subset.
 
-\15.Immediacy
+15\.Immediacy
 -------------
 
 **Microsoft Notepad** is no longer a reasonable editor in my opinion.
@@ -295,7 +295,7 @@ If its none empty they can just see it based on the existing value.
 Otherwise it is not worse than INI as everything is a string in INT,
 at least in TOML we may be able to see an empty list if the key hasn't been omitted.
 
-\16. Genesis
+16\. Genesis
 ------------
 
 Apparently the author doesn't like the tradeoffs made in TOML compared to INI.
@@ -320,7 +320,7 @@ Compared to Yaml TOML does not suffer from unquoted strings,
 especially multiline unquoted strings with their sigils I can never get right,
 or significant whitespace.
 
-\17. Against [Postel's law][postels-law] by design
+17\. Against [Postel's law][postels-law] by design
 -----------------------------------
 
 I think this is another point that requires comparing different aspects against one another.
@@ -342,7 +342,7 @@ I generally prefer an error when something is wring/invalid that having the prog
 silently guess what I meant. I find this to be one of the greatest problem of
 e.g. JavaScript and HTML that try to continue no matter what.
 
-\18. Performance
+18\. Performance
 ----------------
 
 Bad example parser and file: <https://github.com/madmurphy/libconfini/issues/19>
@@ -352,7 +352,7 @@ If that is documentation of all possible options,
 it should probably be a separate documentation file.
 If it is actual config data, it should probably be a database instead.
 
-\19. Human-friendly vs. human-readable
+19\. Human-friendly vs. human-readable
 --------------------------------------
 
 I disagree on the human-readable.ness of JSON.
@@ -366,7 +366,7 @@ though not all JSON parsers are that strict and accept trailing comma.
 Regarding readability I agree that INI and TOML are similar in readability.
 Though I would argue due to not being stringly types that TOML is easier to write correctly.
 
-\20. Aesthetics
+20\. Aesthetics
 ---------------
 
 This section doesn't really contain a point, but I prefer my TOML files
